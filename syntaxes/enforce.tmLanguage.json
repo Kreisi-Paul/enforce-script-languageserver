@@ -1,0 +1,59 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.enforce",
+	"name": "Enforce Script",
+	"patterns": [
+		{ "include": "#function-keywords" },
+		{ "include": "#variable-keywords" },
+		{ "include": "#class-keywords" },
+		{ "include": "#other-keywords" },
+		{ "include": "#primitives"},
+		{ "include": "#class" },
+		{ "include": "#functions" },
+		{ "include": "#strings" },
+		{ "include": "#comments" }
+	],
+	"repository": {
+		"function-keywords": {
+			"patterns": [{
+				"name": "storage.modifier.function.enforce",
+				"match": "\\b(private|protected|static|override|proto|native)\\b"
+			}]
+		},
+		"variable-keywords": {
+			"patterns": [{
+				"name": "storage.modifier.variable.enforce",
+				"match": "\\b(private|protected|static|autoptr|proto|ref|const|out|inout)\\b"
+			}]
+		},
+		"class-keywords": {
+			"patterns": [{
+				"name": "storage.modifier.class.enforce",
+				"match": "\\b(modded)\\b"
+			}]
+		},
+		"other-keywords": {
+			"patterns": [{
+				"name": "keyword.other.enforce",
+				"match": "\\b(new|delete|class|extends|typedef|return|null|this|super|thread)\\b"
+			}]
+		},
+		"primitives": {
+			"patterns": [{
+				"name": "storage.type.enforce",
+				"match": "\\b(int|float|bool|string|vector|void|Class|typename)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.enforce",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.enforce",
+					"match": "\\\\."
+				}
+			]
+		}
+	}
+}

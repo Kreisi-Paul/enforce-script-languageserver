@@ -1,0 +1,48 @@
+{
+  "name": "enforce-script-languageserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./target/client/extension.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "enforce",
+        "aliases": [
+          "Enforce Script",
+          "enforce"
+        ],
+        "extensions": [
+          ".c"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "enforce",
+        "scopeName": "source.enforce",
+        "path": "./syntaxes/enforce.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode": "^1.1.37",
+    "vscode-languageclient": "^9.0.1",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}
